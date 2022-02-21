@@ -1,4 +1,3 @@
-'use strict';
 // prototype obj 
 const arrayPrototype = {
   //Class.prototype.includes
@@ -87,7 +86,8 @@ const arrayPrototype = {
 
   forEach: function (func) {
     for (let i = 0; i < this.length; i++) {
-      func(this[i]);
+      const element = this.array[i];
+      callback(element, index, this);
     }
   },
 
@@ -99,7 +99,7 @@ const arrayPrototype = {
     return result;
   },
 
-  
+
   }
 
 
