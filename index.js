@@ -19,7 +19,7 @@ const arrayPrototype = {
     return -1;
   },
 
-  push: function () {
+  push: function (...args) {
     for (let i = 0; i < args.length; i++) {
       this[this.length++] = args[i];
     }
@@ -27,6 +27,14 @@ const arrayPrototype = {
   },
 
   slice: function (begin = 0, end = this.length) {
+    if (begin < 0) {
+      const newBegin = this.length + begin; 
+      begin = newBegin < 0 ? 0 : newBegin; 
+    }
+    if (end < 0) {
+     const newEnd = this.length + end;
+     end = newEnd < 0 ? 0 : newEnd;
+    }
     const result = new MyArray();
     for(i = begin; i < end; i++) {
       result.push(this[i]);
@@ -43,7 +51,7 @@ const arrayPrototype = {
     return deleteArg;
   },
 
-  concat: function () {
+  concat: function (...args) {
     const result = new MyArray();
     result.push(this);
     for (let i = 0; i < args.length; i++) {
