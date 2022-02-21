@@ -61,33 +61,27 @@ const arrayPrototype = {
     return this;
   },
 
+  unshift: function (...args) {
+      this.reverse();
+      args.reverse();
+      this.push(...args);
+      this.reverse();
+      return this.length;
+    },
+
+    shift: function () {
+      const deletedItem = this[0];
+      this.reverse();
+      this.length --;
+      this.reverse();
+      return deletedItem;
+    },
+
   forEach: function (func) {
     for (let i = 0; i < this.length; i++) {
       func(this[i]);
     }
   },
-
-  // shift: function () {
-  //   var arrLength = this.length;
-  //   var deleteObj = this[0];
-  //   for (var i = 0; i < arrLength; i++) {
-  //     this[i] = this[i + 1];
-  //   }
-  //   this.length -= 1;
-  //   return deleteObj;
-  // },
-
-  // unshift: function () {
-  //   var argulength = arguments.length;
-  //   for (let i = this.length; i> = 0; i--) {
-  //     this[i + argulength - 1] = this[i - 1]
-  //   }
-  //   for (let i = 0; i < argulength; i++) {
-  //     this[i] = arguments[i]
-  //   }
-  //   return this.length;
-  // },
-
   }
 
 
