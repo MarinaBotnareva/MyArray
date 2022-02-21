@@ -26,7 +26,7 @@ const arrayPrototype = {
     return this.length;
   },
 
-  slice: function (begin, end = this.length) {
+  slice: function (begin = 0, end = this.length) {
     const result = new MyArray();
     for(i = begin; i < end; i++) {
       result.push(this[i]);
