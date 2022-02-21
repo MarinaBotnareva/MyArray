@@ -90,6 +90,16 @@ const arrayPrototype = {
       func(this[i]);
     }
   },
+
+  map: function (func) {
+    const result = new MyArray();
+    this.forEach((item) => {
+      result.push(func(item));
+    });
+    return result;
+  },
+
+  
   }
 
 
